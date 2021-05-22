@@ -1,6 +1,9 @@
 # 억새풀_Server
 
-서버 초보 두 감자의 솝커톤 박살내기🥔🥔
+  
+
+서버 초보 두 감자의 솝커톤 박살내기🥔🥔  
+
 
 ## 서비스 이름 및 한 줄 소개
 **서비스명** : 억새풀  (어거지로 새롭게 풀이하는 짤의 제목)
@@ -44,24 +47,29 @@ export default mongoose.model<Icategory & mongoose.Document>("Category", categor
 ```typescript
 import mongoose from "mongoose";
 import { Idetailview } from "../interfaces/Idetailview";
+import { Ireply } from "../interfaces/Ireply";
 
 const detailviewSchema = new mongoose.Schema({
   image: {
     type: String,
     required: true,
   },
-  replyNum: {
-    type: Number,
-    required: true,
-  },
-  replyText: {
-    type: String,
-    required: true,
-  },
-  like: {
-    type: Number,
-    required: true,
-  }
+  reply: [
+      {
+        replyText: {
+            type: String,
+            required: true,
+        },
+        replyIndex: {
+            type: Number,
+            required: true,
+        },
+        like: {
+            type: Number,
+            required: true,
+        }
+      }
+  ]
 });
 
 export default mongoose.model<Idetailview & mongoose.Document>("Detailview", detailviewSchema);
@@ -71,3 +79,30 @@ export default mongoose.model<Idetailview & mongoose.Document>("Detailview", det
 
 ## API 명세서 (초안)
 
+### path: /category/:name
+
+```json
+{
+	status:200,
+	data:{
+		image: "<https://euoksae.s3.us-east-2.amazonaws.com/ferrari-sf1000-4k-charles-leclerc-2020-f1-cars-formula-1-besthqwallpapers.com-1920x1080.jpg>"
+		title: "SOPT 짱~"
+		detailIdx : 2
+}
+```
+
+### path: /detail/:detailIdx
+
+```json
+{
+	status:200,
+	data:{
+		image: "<https://euoksae.s3.us-east-2.amazonaws.com/ferrari-sf1000-4k-charles-leclerc-2020-f1-cars-formula-1-besthqwallpapers.com-1920x1080.jpg>"
+		reply: [
+				replyText: "SOPT 짱~"
+				replyIndex: 22
+				like: 256
+		]
+	}
+}
+```
