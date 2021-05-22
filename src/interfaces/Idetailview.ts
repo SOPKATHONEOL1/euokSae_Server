@@ -1,6 +1,6 @@
+import { Ireply } from "./Ireply";
+
 export interface Idetailview {
     image: string;
-    replyNum: Number;
-    replyText: string;
-    like : Number;
+    reply: [Ireply];
   }
