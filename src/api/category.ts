@@ -9,7 +9,7 @@ const router = Router();
  *  @access Public
  */
 
- router.post(
+router.post(
     "/category/idolidol",
     async (req: Request, res: Response) => {
         const {image, name, title, detailIndex} = req.body;
@@ -22,12 +22,10 @@ const router = Router();
         });
         await idol.save();
         res.json(idol);
-
     });
 
 router.get("/category/idol", async (req: Request, res: Response) => {
   try {
-
     const category = await Category.find().populate("detailIdx", ["image", "title"]);
     res.json(category);
   } catch (error) {
