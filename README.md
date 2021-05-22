@@ -106,3 +106,11 @@ export default mongoose.model<Idetailview & mongoose.Document>("Detailview", det
 	}
 }
 ```
+
+
+
+## API 명세서  
+
+```typescript
+```
+
