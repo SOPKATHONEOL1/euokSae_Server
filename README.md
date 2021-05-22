@@ -8,12 +8,66 @@
 
 ## 파트원 소개
 
-|            |      |      |
-| :--------: | :--: | :--: |
-| **김기연** |      |      |
-| **최영재** |      |      |
+|    이름    | 역할 |
+| :--------: | :--: |
+| **김기연** |  🥔   |
+| **최영재** |  🥔   |
 
-## models
+## Models
+
+### models/categoty.ts
+
+```typescript
+import mongoose from "mongoose";
+import { Icategory } from "../interfaces/Icategory";
+
+const categorySchema = new mongoose.Schema({
+  image: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  detailIdx: {
+    type: Number,
+    required: true,
+  },
+});
+
+export default mongoose.model<Icategory & mongoose.Document>("Category", categorySchema);
+```
+
+### models/detailview.ts
+
+```typescript
+import mongoose from "mongoose";
+import { Idetailview } from "../interfaces/Idetailview";
+
+const detailviewSchema = new mongoose.Schema({
+  image: {
+    type: String,
+    required: true,
+  },
+  replyNum: {
+    type: Number,
+    required: true,
+  },
+  replyText: {
+    type: String,
+    required: true,
+  },
+  like: {
+    type: Number,
+    required: true,
+  }
+});
+
+export default mongoose.model<Idetailview & mongoose.Document>("Detailview", detailviewSchema);
+```
+
+
 
 ## API 명세서 (초안)
 
