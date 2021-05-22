@@ -14,6 +14,10 @@ const categorySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  name: {
+      type: String,
+      required: true,
+  }
 });
 
 export default mongoose.model<Icategory & mongoose.Document>("Category", categorySchema);

@@ -8,8 +8,26 @@ const router = Router();
  *  @desc Get all category
  *  @access Public
  */
-router.get("/category/:name", async (req: Request, res: Response) => {
+
+ router.post(
+    "/category/idolidol",
+    async (req: Request, res: Response) => {
+        const {image, name, title, detailIndex} = req.body;
+		//User 객체 생성
+        let idol = new Category({
+            image,
+            name,
+            title,
+            detailIndex,
+        });
+        await idol.save();
+        res.json(idol);
+
+    });
+
+router.get("/category/idol", async (req: Request, res: Response) => {
   try {
+
     const category = await Category.find().populate("detailIdx", ["image", "title"]);
     res.json(category);
   } catch (error) {
