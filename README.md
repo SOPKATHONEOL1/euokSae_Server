@@ -67,46 +67,6 @@ const detailviewSchema = new mongoose.Schema({
 export default mongoose.model<Idetailview & mongoose.Document>("Detailview", detailviewSchema);
 ```
 
-### models/reply.ts
-
-```typescript
-import mongoose from "mongoose";
-import { Ireply } from "../interfaces/Ireply";
-
-const replySchema = new mongoose.Schema({
-  replyNum: {
-    type: Number,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  }
-});
-
-export default mongoose.model<Ireply & mongoose.Document>("Reply", replySchema);
-```
-
-### models/like.ts
-
-```typescript
-import mongoose from "mongoose";
-import { Ilike } from "../interfaces/Ilike";
-
-const likeSchema = new mongoose.Schema({
-  replyNum: {
-    type: Number,
-    required: true,
-  },
-  like: {
-    type: Number,
-    required: true,
-  }
-});
-
-export default mongoose.model<Ilike & mongoose.Document>("Like", likeSchema);
-```
-
 
 
 ## API 명세서 (초안)
