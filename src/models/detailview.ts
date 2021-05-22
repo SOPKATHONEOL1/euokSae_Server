@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { Idetailview } from "../interfaces/Idetailview";
-import { Ireply } from "../interfaces/Ireply";
 
 const detailviewSchema = new mongoose.Schema({
   image: {

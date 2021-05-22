@@ -1,10 +1,8 @@
-Dear 팟짱님 ,,,
+남은거 :
+category.ts sort
+detailview.ts 수정
+like.ts reply.ts 삭제
 
-전체적인 코드 리뷰
-
-
-1. reply.ts 에서
-error를 어떻게 잡아야 할까요?
-
-
-2. schema 설계
+db에 data 업로드 하고 포스트맨으로 확인
+s3에 이미지 업로드
+서버 배포
