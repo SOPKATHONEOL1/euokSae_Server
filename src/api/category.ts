@@ -10,9 +10,10 @@ const router = Router();
  */
 
 router.post(
-    "/category/idolidol",
+    "/category/:name",
     async (req: Request, res: Response) => {
-        const {image, name, title, detailIndex} = req.body;
+        const {image, title, detailIndex} = req.body;
+        const { name } = req.params;
 		//User 객체 생성
         let idol = new Category({
             image,
